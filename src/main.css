@@ -1,0 +1,162 @@
+.logo{
+    width: 120px;
+    height: 31px;
+    background: rgba(255,255,255,.2);  
+    margin: 16px 24px 16px 40px;
+    float: left;
+}
+.float_r{
+    float: right;
+    margin: 16px 24px 16px 40px;
+}
+.layout{
+    font-size: 16px
+}
+/* 左侧导航固定宽度 */
+#leftMenu {   
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #333;
+    border-right: 1px solid #e9e9e9;
+}
+
+/* logo样式 */
+#logo {
+    display: block;
+    margin: 20px auto;
+    -webkit-transition:all 1s;
+    -moz-transition:all 1s;
+    -o-transition:all 1s;
+    -ms-transition:all 1s;
+    transition:all 1s;
+}
+#logo:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+
+/* 右侧宽度自适应 */
+#rightWrap {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+    padding: 20px 20px 0 20px;
+    position: absolute;
+    top: 0;
+    left: 185px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+
+}
+
+.right-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+    padding: 20px 20px 0;
+    position: relative;
+    top: 73px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+#rightWrap .ant-menu-submenu {
+    float: right;
+}
+
+.chart-box {
+    margin-top: 30px;
+}
+
+.ege {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.ege a {
+    color: #009688;
+    font-size: 16px;
+}
+
+.lastPic {
+    display: block;
+    margin: 16% auto 0;
+}
+
+.ani-box {
+    text-align: center;
+}
+
+.doclist {
+    line-height: 40px;
+}
+.card_box{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    margin-top: 20px;
+    border: 1px solid gray;
+    border-radius:8px;
+    box-shadow:0 2px 2px rgba(0,0,0,.2);
+    position:relative;
+    overflow:hidden;
+    top:0;
+    -webkit-transition:all 0.25s;
+    transition:all 0.25s;
+}
+.card_box:hover{
+    /*border: 2px solid red;*/
+    top:-5px;
+    box-shadow:0 12px 16px rgba(0,0,0,.2);
+}
+.card_word{
+    padding: 20px;
+}
+.card_tag_box{
+    width: 100%;
+    padding: 10px;
+    display:flex;
+}
+.card_tag{
+    flex: 1;
+    background: gray;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    border-right: 1px solid black;
+}
+.card_tag:last-child{
+    flex: 1;
+    background: yellow;
+    border-right: 0px solid black;
+}
+.content_left{
+    
+}
+.content_right{
+    background: blue
+}
+.myfooter{
+    height: 80px;
+    border-top: 1px solid gray;
+    color: black;
+    text-align: center;
+}
+.footer_top_box{
+    margin: 10px auto;
+}
+.footer_top{
+    display: inline-block;
+    padding: 2px 5px ;
+    border:1px solid red;
+}
+.me_top_box{
+    display: flex;
+}

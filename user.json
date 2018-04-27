@@ -1,0 +1,16 @@
+{
+    "userinfo": {
+        "iphone" : "13124793355",
+        "jianli" : " 1 ",
+        "state" :  "1", 
+        "user_money": "100", 
+        "bad_money" : "10",
+        "candown_num" : "2",
+        "vip_state" : "0",
+        "user_trade" : "it",
+        "user_age": "25",
+        "user_sex": "1",
+        "user_icon" : "https://cdn.static.qdfuns.com/images/avatars/default.jpg!/fw/64",
+        "history_jianli" : ["111","222","333","3333"]
+    }
+}
