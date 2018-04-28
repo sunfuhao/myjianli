@@ -42,11 +42,10 @@ render(){
         var _this = this;
         ll.map(function (x,index,all) {
             if(index==all.length-1){
-                tag.push(<div className="card_tag" onClick={_this.showConfirm.bind(_this)}>{x}</div>)
+                tag.push(<div className="card_tag" key={index} onClick={_this.showConfirm.bind(_this)}>{x}</div>)
             }else{
                 tag.push(<div className="card_tag" key={index}>{x}</div>)
             }
-            
         })
         return(
         <div>

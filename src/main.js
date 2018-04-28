@@ -37,7 +37,7 @@ import myHeader from './components/header.js'
 import index from './components/index.js'
 import IndexContent from './components/content'
 import MyAbout from './components/myabout'
-
+import myDenglu from './components/denglu'
 const ACTIVE = { color: 'red' }
 
 // 配置导航
@@ -82,7 +82,7 @@ class Sider extends React.Component {
                       >
                         <Menu.Item key="1"><Link to="/">导航</Link></Menu.Item>
                         <Menu.Item key="2"><Link to="/myForm">简历</Link></Menu.Item>
-                        <Menu.Item key="3"><Link to="/quanbu">全部</Link></Menu.Item>
+                        <Menu.Item key="3"><Link to="/denglu">注册／登陆</Link></Menu.Item>
                         <Menu.Item key="4" className="float_r"><Link to="/about">fffff</Link></Menu.Item>
                       </Menu>
                 </Col>
@@ -106,7 +106,7 @@ render((
             <IndexRoute path="/" component={IndexContent} />
             <Route path="myForm" component={myForm} />
             <Route path="myChart" component={myChart} />
-            <Route path="myCalendar" component={myCalendar} />
+            <Route path="denglu" component={myDenglu} />
             <Route path="about" component={MyAbout} />
             <Route path="myCard" component={myCard} />
         </Route>

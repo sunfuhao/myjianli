@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout } from 'antd';
 import { Card,Row, Col } from 'antd';
-import { Avatar,Button,Icon,notification } from 'antd';
+import { message,Upload,Avatar,Button,Icon,notification } from 'antd';
 
 // const { Header} = Layout;
 import { Link, hashHistory, IndexRoute, Redirect, IndexLink} from 'react-router'
@@ -24,7 +24,8 @@ export default class MyAbout extends React.Component {
             description: desc,
           });
     };
-    // 获取数据
+
+    // 获取简历
     fetchjianli = (id) => {
         fetch('../../user.json?id')
             .then((res) => { console.log(res.status);return res.json() })
@@ -51,13 +52,31 @@ export default class MyAbout extends React.Component {
     }
 
 render(){
+        const props = {
+          name: 'file',
+          action: '//jsonplaceholder.typicode.com/posts/',
+          headers: {
+            authorization: 'authorization-text',
+          },
+          onChange(info) {
+            if (info.file.status !== 'uploading') {
+              console.log(info.file, info.fileList,11111);
+            }
+            if (info.file.status === 'done') {
+              message.success(`${info.file.name} file uploaded successfully`);
+            } else if (info.file.status === 'error') {
+              message.error(`${info.file.name} file upload failed.`);
+            }
+          },
+        };
         let _jianli = []
         let userinfo = this.state.user
         if(Object.keys(this.state.myjianli).length == 0){
             _jianli.push(<div className="myjianli">{this.state.myjianli.title}</div>)
         }else{
-             _jianli.push(<Button type="primary" size="small">上传简历</Button>)
+             _jianli.push(<Upload {...props}><Button><Icon type="upload" /> 上传简历</Button></Upload>)
         }
+
         return(
             <div className="">
                 <div className="me_top_box">

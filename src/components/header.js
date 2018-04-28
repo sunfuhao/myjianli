@@ -16,7 +16,6 @@ export default class myHeader extends React.Component {
             current:this.props.key
             
         }
-        console.log(props,22222)
     }
     handleClick = (e) => {
         this.setState({
@@ -52,8 +51,8 @@ render(){
                       >
                         <Menu.Item key="1"><Link to="/">首页</Link></Menu.Item>
                         <Menu.Item key="2"><Link to="/myForm">简历</Link></Menu.Item>
-                        <Menu.Item key="3"><Link to="/quanbu">全部</Link></Menu.Item>
-                        <Menu.Item key="4" className="float_r"><Link to="/about">fffff</Link></Menu.Item>
+                        <Menu.Item key="3"><Link to="/denglu">注册／登陆</Link></Menu.Item>
+                        <Menu.Item key="4" className="float_r"><Link to="/about">个人中心</Link></Menu.Item>
                       </Menu>
                 </Col>
                 </Row>
