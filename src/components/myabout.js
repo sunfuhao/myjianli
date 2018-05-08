@@ -1,7 +1,8 @@
 import React from 'react'
 import { Layout } from 'antd';
-import { Card,Row, Col } from 'antd';
+import { Card,Row, Col,Modal} from 'antd';
 import { message,Upload,Avatar,Button,Icon,notification } from 'antd';
+import UpJianli from './upjianli'
 
 // const { Header} = Layout;
 import { Link, hashHistory, IndexRoute, Redirect, IndexLink} from 'react-router'
@@ -15,7 +16,7 @@ export default class MyAbout extends React.Component {
         this.state = {
             user: {},
             myjianli:{},
-            upsize :'small',
+            visible:false
         }
     }
     openNotification = (title,desc) => {
@@ -50,7 +51,14 @@ export default class MyAbout extends React.Component {
     componentDidMount() {
          this.fetchFn()
     }
-
+    upload =(e)=>{
+        this.setState({
+            visible:true
+        })
+    }
+    hideModal = () => {
+        this.setState({ visible: false })
+    }
 render(){
         const props = {
           name: 'file',
@@ -74,7 +82,7 @@ render(){
         if(Object.keys(this.state.myjianli).length == 0){
             _jianli.push(<div className="myjianli">{this.state.myjianli.title}</div>)
         }else{
-             _jianli.push(<Upload {...props}><Button><Icon type="upload" /> 上传简历</Button></Upload>)
+             _jianli.push(<Button size="large" onClick={this.upload.bind(this)}>上传简历</Button>)
         }
 
         return(
@@ -83,6 +91,9 @@ render(){
                     <Avatar shape="square" url={this.state.user.user_icon} size="large" icon="user" />
 
                 </div>
+                <Modal title="上传简历" visible={this.state.visible} onOk={this.hideModal} onCancel={this.hideModal} footer={null}>
+                    <UpJianli />
+                </Modal>
                 <div>我的简历：{_jianli}</div>
                 <div> 我的金钱：<Button size="small">{this.state.user.user_money}</Button> <Icon type="unlock" />（可提现）</div>
                 <div> 我的金钱：<Button size="small" type="dashed" onClick={this.openNotification.bind(this,'不可以提现','因为这并不是您充值的部分～')}>{this.state.user.bad_money}</Button> <Icon type="lock" />（不可提现）</div>
