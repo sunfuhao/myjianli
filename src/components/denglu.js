@@ -1,4 +1,6 @@
 import React from 'react'
+import cookie from 'react-cookies'
+
 import { Form, Icon, Input, Button, Checkbox ,Select,Radio,Row,Col} from 'antd';
 const FormItem = Form.Item
 const Option = Select.Option
@@ -8,21 +10,31 @@ class denglu extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            yanzheng: "获取验证码",
+            yanzhengtip: "获取验证码",
             kaishidaojishi:true,
             upsize :'small',
         }
     }
+    componentWillMount() {
+        this.state =  { 
+            userid: cookie.load('userid'),
+            userphone:cookie.load('userphone'),
+            yanzhengtip: "获取验证码",
+            kaishidaojishi:true,
+            upsize :'small',
+        }
+        // => 123456789
+    }
     yanzheng = ()=>{
-        if(this.state.yanzheng){
+        if(this.state.yanzhengtip){
             if(this.state.kaishidaojishi){
                 this.setState({kaishidaojishi:false})  
                 let times = 60;
                 let timer = setInterval(()=>{
-                    this.setState({yanzheng:times})  
+                    this.setState({yanzhengtip:times})  
                     times-=1
                     if(times==0){
-                        this.setState({yanzheng:"获取验证码"})
+                        this.setState({yanzhengtip:"获取验证码"})
                         clearInterval(timer)
                         this.setState({kaishidaojishi:true})  
                     }  
@@ -36,6 +48,10 @@ class denglu extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
+                cookie.save('userid',1111) 
+                cookie.save('userphone',values.iphone) 
+                this.props.history.push('/')
+                console.log(cookie.load('userphone'))
                 console.log('Received values of form: ', values);
             }
         });
@@ -72,7 +88,7 @@ class denglu extends React.Component {
                 )}
             </Col>
             <Col span={12}>
-              <Button onClick={this.yanzheng}>{this.state.yanzheng}</Button>
+              <Button onClick={this.yanzheng}>{this.state.yanzhengtip}</Button>
             </Col>
           </Row>
         </FormItem>

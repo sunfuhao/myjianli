@@ -1,7 +1,9 @@
 import React from 'react'
 import { Layout } from 'antd';
+import cookie from 'react-cookies'
 import { Card,Row, Col,Modal} from 'antd';
 import { message,Upload,Avatar,Button,Icon,notification } from 'antd';
+import PDF from 'react-pdf-js';
 import UpJianli from './upjianli'
 
 // const { Header} = Layout;
@@ -16,7 +18,9 @@ export default class MyAbout extends React.Component {
         this.state = {
             user: {},
             myjianli:{},
-            visible:false
+            visible:false,
+            userid: cookie.load('userid'),
+            userphone:cookie.load('userphone') 
         }
     }
     openNotification = (title,desc) => {
@@ -89,10 +93,10 @@ render(){
             <div className="">
                 <div className="me_top_box">
                     <Avatar shape="square" url={this.state.user.user_icon} size="large" icon="user" />
-
+                    <div>我的id：{this.state.userid}</div>
                 </div>
-                <Modal title="上传简历" visible={this.state.visible} onOk={this.hideModal} onCancel={this.hideModal} footer={null}>
-                    <UpJianli />
+                <Modal title="上传简历" visible={this.state.visible} onOk={this.hideModal}  onCancel={this.hideModal} footer={null}>
+                    <UpJianli onsub={this.hideModal}/>
                 </Modal>
                 <div>我的简历：{_jianli}</div>
                 <div> 我的金钱：<Button size="small">{this.state.user.user_money}</Button> <Icon type="unlock" />（可提现）</div>

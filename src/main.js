@@ -29,7 +29,6 @@ import 'antd/dist/antd.css';
 // 引入单个页面（包括嵌套的子页面）
 import myTable from './components/table.js'
 import myForm from './components/form.js'
-import myChart from './components/chart.js'
 import myAnimate from './components/animate.js'
 import myCalendar from './components/calendar.js'
 import myCard from './components/fetch.js'
@@ -101,11 +100,10 @@ class Sider extends React.Component {
 
 // 配置路由
 render((
-    <Router history={hashHistory} >
+    <Router history={hashHistory} forceRefresh="true">
         <Route path="/" component={index}>
             <IndexRoute path="/" component={IndexContent} />
             <Route path="myForm" component={myForm} />
-            <Route path="myChart" component={myChart} />
             <Route path="denglu" component={myDenglu} />
             <Route path="about" component={MyAbout} />
             <Route path="myCard" component={myCard} />

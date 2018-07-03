@@ -1,8 +1,9 @@
 import React from 'react'
 import {
   Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon, Rate,
+  Slider, Button, Upload, Icon, Rate,Input
 } from 'antd';
+const { TextArea } = Input;
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
@@ -16,6 +17,7 @@ class Demo extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        this.props.onsub()
         console.log('Received values of form: ', values);
       }
     });
@@ -39,7 +41,7 @@ class Demo extends React.Component {
       wrapperCol: { span: 14 },
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit.bind(this)}>
         
         <FormItem
           {...formItemLayout}
@@ -51,7 +53,7 @@ class Demo extends React.Component {
               { required: true, message: '请选择你能胜任的岗位!' },
             ],
           })(
-            <Select placeholder="请选择你能胜任的岗位">
+            <Select placeholder="请选择你能胜任的岗位～">
               <Option value="0">前端</Option>
               <Option value="1">后端</Option>
             </Select>
@@ -92,6 +94,17 @@ class Demo extends React.Component {
             initialValue: 3.5,
           })(
             <Rate />
+          )}
+        </FormItem>
+
+
+        <FormItem
+          {...formItemLayout}
+          label="介绍"
+        >
+          {getFieldDecorator('mysay', {
+          })(
+            <TextArea rows={4} />
           )}
         </FormItem>
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import cookie from 'react-cookies'
 // const { Header} = Layout;
 import MyHeader from './header'
 import MyFooter from './footer'
@@ -12,7 +13,9 @@ export default class index extends React.Component {
         super(props)
         this.state = {
             current: 0,
-            curr_key: 0
+            curr_key: 0,
+            userid:0,
+            userphone:0
         }
     }
     changecurrkey(e){
@@ -31,14 +34,22 @@ export default class index extends React.Component {
     componentDidMount() {
         this.fetchFn()
     }
+    dengluup(){
+        this.setState({
+            userid: cookie.load('userid'),
+            userphone:cookie.load('userphone') 
+        })
+    }
 
     render() {
         return(
             <div>
-                <MyHeader />
+                <MyHeader userid={this.state.userid} userphone={this.state.userphone}/>
                 <Row>
                     <Col span={18} offset={3}>
-                        {this.props.children}               
+                        {this.props.children && React.cloneElement(this.props.children, {
+                            dengluup: this.dengluup
+                        })}
                     </Col>
                     <Col span={8}>
                     </Col>

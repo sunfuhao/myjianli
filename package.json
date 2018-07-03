@@ -40,9 +40,12 @@
     "antd-init": "^2.0.6",
     "babel-plugin-import": "^1.7.0",
     "bootstrap": "^4.1.0",
+    "pdfjs": "^2.0.0-alpha.3",
     "react": "^15.0.2",
     "react-bootstrap": "^0.32.1",
+    "react-cookies": "^0.1.0",
     "react-dom": "^15.0.2",
+    "react-pdf-js": "^3.0.7",
     "react-router": "^2.4.1",
     "save-dev": "^2.0.0"
   }
